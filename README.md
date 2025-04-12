@@ -106,4 +106,3 @@ Can:
   <h2 class="text">healine2</h2>
 
 Note: <style> Tag is for deciding color and size of font
-
