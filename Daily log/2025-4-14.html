@@ -1,0 +1,271 @@
+# Daily-Learning-Log 2025/4/14
+
+## 1. dl 
+- Indicates the entire list with a set of -information
+- 情報がセットになったリスト全体をしめす(項目名と内容がセット担っていることを示す）
+
+## 2. dt 
+- 項目名
+
+## 3. dd 
+- content of the information
+- 情報の内容　
+
+dtとddは質問と答えのような関係。何かに対して、その内容というように情報を書いていく場合は便利。
+
+Eg:
+'<!doctype html>'
+'<html>'
+    '<head>''
+        '<meta charset="utf-8">
+        <title>HTMLの練習</title>
+　　</head>
+<body>
+    <dl>
+    <dt>質問1</dt>
+    <dd>答え1</dd>
+    <dt>質問2</dt>
+    <dd>答え2</dd>
+    <dt>質問3</dt>
+    <dd>答え3</dd>
+    </dl>   
+</body>
+
+</html>
+
+## 4. Link
+- '<a>''</a>'
+-Usually write with href such <a href="URL">Name</a>
+
+## 5. href (link)
+- Attribute for specifying the destination of a link
+- リンクのとび先を指定する指定するための属性
+
+## 6. id 
+- Name a specific part of the page
+- ページの中にある特定の部分について名前を付ける
+
+Eg:
+
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>HTMLの練習</title>
+　　</head>
+    <body>
+        <a href="https://html5.validator.nu/">My link</a>
+        <br><br>
+    
+    </body>
+
+</html>
+
+Eg 2:
+
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>HTMLの練習</title>
+　　</head>
+    <body>
+        <a href="#index">My link</a>
+        <br><br>
+        <p id="index">This is index</p>
+    </body>
+
+</html>
+
+## 7. Relative path (相対パス)
+- Tell where the other person is based on where you are
+- Other files in your current location: file name
+- Folders in your current location: folder/file name
+- Files one level above where you are: . /filename
+- Files two levels above where you are: . /... /.../filename
+
+- 今いるばしょを基準にして相手がどこにいるかを伝える
+- 今いる場所にあるほかのファイル：ファイル名
+- 今いる場所の「フォルダ」：フォルダ名/ファイル名
+- 今いる場所の1階層上にあるファイル：../ファイル名
+- 今いる場所の2階層上にあるファイル：../../ファイル名
+
+## 8. Absolute path (絶対パス)
+- 相手が確実にどこにいるのかを伝える書き方　＝　URL
+
+Eg:
+
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>HTMLの練習</title>
+　　</head>
+    <body>
+       <p>This page is sub.</p>
+       <a href="test.html">index</a>
+       <a href="try/sub.html">test</a>
+    </body>
+
+</html>
+
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>HTMLの練習</title>
+　　</head>
+    <body>
+       <p>This page is sub.</p>
+       <a href="../index.html">index</a>
+       <a href="../test.html">test</a>
+    </body>
+
+</html>
+
+## 7. img 
+- Usually use like img src=""
+- src is source
+## 8. alt 
+- Alternative
+Tells what the image looks like (browser reads it out)
+
+- 画像がどんなものかを伝える（ブラウザが読み上げる）
+
+## 9. title
+- Hold the mouse cursor over the image for a moment to display it.
+
+- 画像の上でマウスカーソルをしばらく置いておくと表示される
+
+Eg:
+
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>HTMLの練習</title>
+　　</head>
+    <body>
+       <p>This is a picture of sun</p>
+       <img src="image.jpg" alt="picture of the sun" title="Picture of the sun">
+
+    </body>
+
+</html>
+
+## 10. Link tag
+- Used to load style sheets (CSS, etc.)
+- Used to determine how the page should be displayed
+- Used when using Favicon (Favorite + icon, the icon that appears when you bookmark a page)
+
+- スタイルシート（CSSなど）を読み込むときに使う
+- ページの表示のさせ方を決めるもの
+- Favicon (Favorite + icon。ブックマークした時に表示されるアイコン)を使うときに使う
+
+## 11. Script tag
+- Use to load Javascript
+- Used to write Javascript as part of HTML.
+
+- HTMLの一部としてJavascriptを書き込むときに使う。
+- Javascriptを読み込むときに使う
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>HTMLの練習</title>
+        <link rel="stylesheet" type="text/css" href="styl.css">
+        <link rel="shortcut icon" type="image/png" href="icon.png">
+        <script type="text.javascript" src="javascript.js"></script>
+        
+        もしこのスクリプトの間にJavaを入れるというものであれば、
+        <script type="text/javascript">
+            ここに書かれた内容はJavascript
+        </script>
+
+　　</head>
+    <body>
+       <p>You need more information to show this page. <br>
+        Stylesheet, favicon which known for picture, or javascript may requreid in some cases.
+       </p>
+
+    </body>
+
+</html>
+
+Tag:
+rel = relation
+rel=“stylesheet” = tells HTML that this file is a stylesheet
+type=“text/css” = specifies that “this file is CSS (the language of style)” (often you don't have to write it).
+href=“style.css” = Specifies the location of the file to actually load. Here we are loading a CSS file named style.css.
+
+rel="stylesheet" = このファイルはスタイルシートだよとHTMLに教えてあげる
+type="text/css" = このファイルはCSS（スタイルの言語）だよ」と指定しています（書かなくてもOKな場合が多い）。
+href="styl.css" = 実際に読み込むファイルの場所を指定します。ここでは、style.cssという名前のCSSファイルを読み込んでいます。
+
+## 12. iframe
+- inline frame
+- Make a specific file appear as part of the page
+
+- 特定のファイルを、ページの一部に表示させる
+
+- **src** = specifies the location of the file to be displayed
+- **width** = specifies the width of the inline frame
+- **height** = specifies the height of the inline frame
+
+- **src** = 表示させたいファイルの場所を指定する
+- **width** = インラインフレームの幅を指定する
+- **height** = インラインフレームの高さを指定する
+
+
+Eg:
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>HTMLの練習</title>
+　　</head>
+    <body>
+        <p>
+            このページはインラインで表示される内容です。<br>
+            別のページを一部として表示させるときは役立つ方法ですが、場合によってはこの手法が向かないこともあります。
+        </p>
+        <iframe src="iframe.html" width="200" height="100">
+            このページはiframe対応ブラウザでご覧ください
+
+        </iframe>
+    </body>
+
+</html>
+
+## 12. Comment
+- Programming, etc., to make content easier to understand when reading back
+- Non-programmatic notation = parts of a program that are not executed or reflected (a.k.a. commented out)
+- By commenting out a part of a program, its behavior can be skipped
+- Usage of comments used in debugging
+
+- プログラミングなどで、読み返すときに内容を分かりやすくするためのもの
+- プログラムではない表記＝実行・反映されない部分（a.k.a. コメントアウト）
+- プログラムの一部をコメントアウトすることによって、その動作をスキップさせることができる
+- デバッグで使用されるコメントの利用法
+
+## 13. How to write comment in html?
+'<!-- ここにコメント -->'
+
+Eg: 自分が後で確認したいときとか、にここでコメント残しておけばサイトには反映されないので便利
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>HTMLの練習</title>
+　　</head>
+    <body>
+        <!--ここから第一段落 -->
+        <p>
+            Text. Text.Text. Text.Text. Text.Text. Text.Text. Text.Text. Text.
+        </p>
+       <!--ここまで第一段落 -->
+    </body>
+
+</html>
