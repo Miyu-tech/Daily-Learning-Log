@@ -1,0 +1,227 @@
+# Daily-Learning-Log 2025/4/16
+
+## 1. Table
+- 行　＝　tr tag
+
+## 2. セル
+- td =　マスのこと
+- th = テーブルのヘッダー
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>HTMLの練習</title>
+　　</head>
+    <body>
+       <table border="1">
+        <tr>
+            <th>Japanese</th>
+            <th>English</th>
+        </tr>
+        <tr>
+            <td>Tokyo</td>
+            <td>Osaka</td>
+        <tr>
+            <td>Kyoto</td>
+            <td>Hiroshima</td>
+        </tr>
+        </tr>
+            <td></td>
+            <td>Okina</td>
+       </table>
+    </body>
+
+</html>
+
+## 3. 表のヘッダー
+- thead
+
+## 4. 表のフッター
+- tfoot 
+
+## 5. 表のボディー
+- tbody 
+
+Note:<td colspan="2">
+- テーブルの横何マスまで広げたいかを指定
+
+## 6. テキスト入力のいろいろ
+- 一行タイプ　＝　inputタグ / type="text"
+- パスワードタイプ
+- inputタグ / type="password"
+- 複数行入力できるもの
+- textareaタグ
+
+**Learned**
+-  <input type="text" name="name">で書くと、サイトに表示される空白のテキストの文字は見える。
+- <input type="password" name="password">この場合はパスワードを書く時と同じで・・・で内容が見えなく表示される。
+- <textearea name="info" rows="4" cols="80"> rowsの場合は縦に何マスか。colsの場合は横に何マスかを指定。
+
+Eg:
+
+<!doctype html>
+<html kang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>HTMLの練習</title>
+　　</head>
+    <body>
+        <input type="text" name="name"><br>
+        <input type="password" name="password"><br>
+        <textearea name="info" rows="4" cols="80">Write something here</textearea><br>
+    </body>
+
+</html>
+
+## 7. ラジオボタンとチェックボックス
+## 8. 選択式入力
+- 一つしか選択できないもの：ラジオボタン/ドロップダウンメニュー
+- 複数選択が可能なもの：チェックボックス
+
+## 9. ラジオボタン
+- inoutタグ / type="radio"
+- name属性が同じものの中で一つしか選択できない
+- value属性で送信する値を指定する
+
+## 10. チェックボックス
+- inputタグ / type="checkbox"
+- name属性が同じものがひとまとまりのデータとして扱われる（いくつものデータがひとまとまりに送信される）
+- value属性が送信する値を指定する
+
+Eg:
+
+<!doctype html>
+<html kang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>HTMLの練習</title>
+　　</head>
+    <body>
+        <input type="text" name="name"><br>
+        <input type="password" name="password"><br>
+        <textearea name="info" rows="4" cols="80">Write something here</textearea>
+        <br>
+        <input type="radio" name="gender" value="male>"Man<br>
+        <input type="radio" name="gender" value="female"females
+        <br>
+        <input type="checkbox" name="music" value="jazz"Jazz<br>
+        <input type="checkbox" name="music" value="rock"Rock<br>
+        <input type="checkbox" name="music" value="hiphpop"Hiphip<br>
+    </body>
+
+</html>
+
+## 11. ドロップダウンメニュー
+- selectタグ
+- セレクトタグに対してname属性を指定
+- 項目ごとにoptionタグで内容を指定していく
+- optionタグに対してはvalue属性を指定して送信する値を決める
+
+## 12. optgroup
+- 複数のoptionをグルーピングする
+- 例：メニューの種類分けなど
+
+Eg:
+
+<!doctype html>
+<html kang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>HTMLの練習</title>
+　　</head>
+    <body>
+        <input type="text" name="name"><br>
+        <input type="password" name="password"><br>
+        <textearea name="info" rows="4" cols="80">Write something here</textearea>
+        <br>
+        <input type="radio" name="gender" value="male>"Man<br>
+        <input type="radio" name="gender" value="female"females
+        <br>
+        <input type="checkbox" name="music" value="jazz"Jazz<br>
+        <input type="checkbox" name="music" value="rock"Rock<br>
+        <input type="checkbox" name="music" value="hiphpop"Hiphip<br>
+        <br>
+        <select name="address">
+            <optgroup label="関東">
+                <option value="tokyo">Tokyo</option>
+                <option value="chiba">Chiba</option>
+                <option value="Saitama">Saitama</option>
+            </optgroup>
+            <optgroup label="関西">
+                <option value="osaka">Osaka</option>
+                <option value="Kyoto">Kyoto</option>
+            </optgroup>
+        </select>
+    </body>
+</html>
+
+## 13. fieldset
+- 不空の入力欄をまとめるために使う
+
+## 14. legend
+- fieldsetでまとめた項目の説明を書く
+
+## 15. label
+- 入力欄のラベルとして利用する
+- 入力欄のIDに対してlabelのfor属性で指定する
+
+Note: 
+-   <fieldset>で囲んだ中（input type="radio")は選択できなくなるので、labelをつけなけれいけない。
+    -idは同じページの中で1個しかない
+
+Eg:
+
+<!doctype html>
+<html kang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>HTMLの練習</title>
+　　</head>
+    <body>
+        <fieldset>
+            <legend>IDとパスワード</legend>
+            <label for="name">ID</label><input type="text" name="name" id="name"><br>
+           <label for="pass">password</label> <input type="password" name="password" id="pass"><br>
+        </fieldset>
+        <br>
+            <textearea name="info" rows="4" cols="80">Write something here</textearea>
+        <br>
+        <fieldset>
+            <legend>性別</legend>
+            <input type="radio" name="gender" value="male" id="Man"><label for="man">Man</label><br>
+            <input type="radio" name="gender" value="female" id="female"><lable for="female">Female</lable><br>
+        </fieldset>
+        <br>
+        <input type="checkbox" name="music" value="jazz"Jazz<br>
+        <input type="checkbox" name="music" value="rock"Rock<br>
+        <input type="checkbox" name="music" value="hiphpop"Hiphip<br>
+        <br>
+        <select name="address">
+            <optgroup label="関東">
+                <option value="tokyo">Tokyo</option>
+                <option value="chiba">Chiba</option>
+                <option value="Saitama">Saitama</option>
+            </optgroup>
+            <optgroup label="関西">
+                <option value="osaka">Osaka</option>
+                <option value="Kyoto">Kyoto</option>
+            </optgroup>
+        </select>
+    </body>
+</html>
+
+## 16. ボタン
+- inputタグ　/ type="submit" これは入力したデータを送信するときに押すボタン
+- buttinタグ = Javascript などを使い処理を実行するきっかけに使うボタン（押しても送信されない）
+
+## 17. POST / GET
+- POST = データを裏でまとめて送る(文字数やファイルが大きくてもまとめて送れる。基本はこれで送る)
+- GET = URLの一部としてデータを送る（urlさえわかれば、児童手金データを送ることができる）
+
+## 18. formタグ
+- 入力フォーム全体を囲み、一つのデータとして送信する単位を示す。
+
+Note:
+- <input type="submit"のあと、表示させたい文字はValueで表示させる
+- <form method="post" action="#"> actionをつければ、どこに送るか指定できる
