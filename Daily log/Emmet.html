@@ -1,0 +1,91 @@
+## > (child), + (Siblings)
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmet demo</title>
+</head>
+
+<body>
+    <main>
+        <section>
+            <h1></h1>
+        </section>
+    </main>
+    <h1></h1>
+    <h2></h2>
+    <h3></h3>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <nav>
+        <ul>
+            <li><a href="google.com"></a></li>
+            <li><a href="google.com"></a></li>
+            <li><a href="google.com"></a></li>
+            <li><a href="google.com"></a></li>
+            <li><a href="google.com"></a></li>
+        </ul>
+    </nav>
+</body>
+
+</html>
+
+## 1. >
+Eg:
+main>section>h1でTabを押すとタグが全部出る
+
+## 2. +
+Eg: 横並びに出てくる
+<h1></h1>
+<h2></h2>
+<h3></h3>
+
+## 3. * multiplier
+ul>li*5
+
+## 4.
+nav>ul>li*5>a[href="link"]これで展開すると下記のようになる
+
+<nav>
+    <ul>
+        <li><a href="google.com"></a></li>
+        <li><a href="google.com"></a></li>
+        <li><a href="google.com"></a></li>
+        <li><a href="google.com"></a></li>
+        <li><a href="google.com"></a></li>
+    </ul>
+</nav>
+
+## 5. $を使うと番号がふられる
+nav>ul>li*5>a[href="google$.com"]これで展開すると下記のようになる
+
+<nav>
+    <ul>
+        <li><a href="google1.com"></a></li>
+        <li><a href="google2.com"></a></li>
+        <li><a href="google3.com"></a></li>
+        <li><a href="google4.com"></a></li>
+        <li><a href="google5.com"></a></li>
+    </ul>
+</nav>
+
+## 5. {}を使うとリンクの中に、コメントを入れられる
+nav>ul>li*5>a[href="google$.com"]{ここをクリック}これで展開すると下記のようになる
+
+<nav>
+    <ul>
+        <li><a href="google1.com">ここをクリック</a></li>
+        <li><a href="google2.com">ここをクリック</a></li>
+        <li><a href="google3.com">ここをクリック</a></li>
+        <li><a href="google4.com">ここをクリック</a></li>
+        <li><a href="google5.com">ここをクリック</a></li>
+    </ul>
+</nav>
