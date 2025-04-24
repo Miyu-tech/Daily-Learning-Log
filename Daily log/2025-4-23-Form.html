@@ -1,0 +1,58 @@
+## Form,input, label, id, ボタン
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Demo</title>
+</head>
+
+<body>
+    <h1>Form Demo</h1>
+
+    <form action="/tacos"></form>
+    <button type="submit">送信1</button>
+    <p>
+        <label for="username">ユーザー名:</label>
+        <input id="username" type="text" placeholder="ユーザー名" input="username">
+    </p>
+    <button>送信2</button>
+    <p>
+        <label for="password">パスワード：</label>
+        <input id="password" type="password" placeholder="パスワード" name="password">
+    </p>
+    <button>送信3</button>
+    <p>
+        <label for="color">色</label>
+        <input id="color" type="color" name="color">
+    </p>
+
+    <p>
+        <label for="number">好きな数字</label>
+        <input id="number" type="number" placeholder="数字を入力" name="number">
+    </p>
+
+
+    <!--forとidを関連図ける方法は他にもあり、forとidを無くしてlabelタグの中にinputを入れる方法もある-->
+    <p>
+        Eg:
+
+        <label>ユーザー名:
+            <input type="text" placeholder="ユーザー名">
+        </label>
+    </p>
+    <button>送信</button>
+</body>
+
+</html>
+
+
+## 1. Form
+- 入力欄とか検索欄
+- アクション属性。「どこに」に記入したものを送るか、そのアクションができる。
+Eg:　<form action=""></form>このactionがどこに飛ばすか
+
+## ボタン
+- formの中にある。
