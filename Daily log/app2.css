@@ -1,0 +1,42 @@
+.post button:hover {
+    background-color: #e63946;
+    color: #5fc43d
+}
+
+.post a {
+    color: #457b9d;
+    text-decoration: none;
+}
+
+.post a:hover {
+    text-decoration: underline;
+}
+
+.post button:active {
+    background-color: #8d39e6;
+}
+
+body {
+    background-color: #ececa1;
+}
+
+.post:nth-of-type(3n) {
+    background-color: #bddfb1;
+}
+
+.post:nth-of-type(2) {
+    background-color: #d5b1df;
+}
+
+h2::first-letter {
+    font-size: 50px;
+    background-color: aquamarine;
+}
+
+p::first-line {
+    color: #8d39e6;
+}
+
+p::selection {
+    background-color: #5fc43d;
+}
