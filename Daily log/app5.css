@@ -1,0 +1,42 @@
+section {
+    background-color: rgb(120, 70, 5);
+    width: 800px;
+    height: 800px;
+}
+
+div {
+    background-color: rgb(165, 165, 4);
+    width: 70%;
+    height: 20%;
+}
+
+h1 {
+    font-size: 40px;
+    border: 1px solid black;
+    line-height: 200%;
+}
+
+h2 {
+    font-size: 2em;
+    margin-left: 1em;
+}
+
+article {
+    font-size: 20px;
+}
+
+p {
+    font-size: 0.5em;
+}
+
+h3 {
+    font-size: 3em;
+}
+
+button {
+    font-size: 1em;
+    padding: 0 1em;
+    border-radius: 0.5em;
+    background-color: aqua;
+    color: black;
+}
