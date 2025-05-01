@@ -1,0 +1,42 @@
+/* emを使うとulやliなどが雪だるま式にどんどん文字数が大きくなるが、remsを使用することにより、同じタグ同士のフォントサイズなどがルート（htmlのこと）の大きさが基準になるので、均一下大きさになる*/
+
+
+html {
+    font-size: 20px;
+}
+
+#ems p {
+    font-size: 1em;
+}
+
+#ems ul {
+    font-size: 1.2em;
+}
+
+#ems {
+    font-size: 15px;
+}
+
+button {
+    font-size: 1em;
+    padding: 0 1em;
+    border-radius: 0.5em;
+    background-color: #2a9d8f;
+    color: white;
+}
+
+#rems h2 {
+    font-size: 3rem;
+}
+
+#rems h3 {
+    font-size: 2rem;
+}
+
+#rems ul {
+    font-size: 0.8rem;
+}
+
+#rems button {
+    font-size: 0.5rem;
+}
