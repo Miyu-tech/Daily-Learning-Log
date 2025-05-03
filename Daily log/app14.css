@@ -1,0 +1,33 @@
+body {
+    font-faimly: 'Open Sans', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+#container {
+    background-color: #003049;
+    width: 90%;
+    height: 500px;
+    margin: 0 auto;
+    border: 5px solid #003049;
+    display: flex;
+    flex-direction: column;
+    /*--row, row-reverseだと今divが左から右、右から左に並ぶ*/
+    /* flex-direction: column;これは縦に並べたいときに使う*/
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+#container div {
+    width: 200px;
+    height: 200px;
+}
+
+
+/*flex-startは主軸に対してどのようにコンテンツを配置するかを決めるもの*/
+/*flex-startとflex-endとcenterは右寄せ合左寄せか真ん中か*/
+/*betweenは物の間にスペースを作るから両端にはスペースが出ない*/
+/*aroundにすると物の周りにスペースがつく。ただしそのままだと両端は他のスペースの半分のスペースしか出ないので、均一にする場合はspace-evenlyを使う*/
+/*flex-directionで主軸を決めて（右左）、flex-wrapで交差軸（上下）を決める*/
