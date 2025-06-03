@@ -26,3 +26,72 @@ document.querySelector('p').innerHTML
 document.querySelector('h1').innerHTML = '<i>ABCD</i>'
 '<i>ABCD</i>'
 
+const container = document.getElementById("container");
+container.style.textAlign = "center";
+
+const img = document.querySelector("img");
+img.style.width = "150px";
+img.style.borderRadius = "50%";
+
+const spans = document.querySelectorAll("h1 span");
+spans.forEach((span, index) = > {
+    span.style.color = colors[index];
+});
+
+
+h2.classList.add('purple')
+
+h2.classList.add('border')
+
+h2.classList.remove('border')
+
+h2.classList.toggle('purple')
+
+const lis = document.querySelectorAll('li');
+for (let li of lis) {
+    li.classList.toggle('highlight');
+}
+
+
+document.createElement('img')
+    < img >​
+const newImage = document.createElement('img');
+console.dir(newImg)
+
+document.body.appendChile(newImg)
+
+newH3.innerText = '新規！'
+
+p.append('aaa', 'iii', 'uuu')
+
+##先頭に追加するなら prepend
+
+const newB = document.createElement('b')
+newB.append('Helo');
+p.prepend('newB')
+
+
+#h1のしたに何かを下に何かを追加するなら
+
+const h2 = document.createElement('h2')
+h2.append('cute apple')
+const h1 = document.querySelector('h1')
+h1.insertAdjustmentElement('afterend', h2);
+
+const container = document.getElementById('container')
+for (let i = 1; i <= 100; i++) {
+    const btn = document.createElement('button');
+    btn.innerText = 'Hey!';
+    container.appendChild(btn)
+}
+
+
+##何かを消すとき
+
+const b = document.querySelector('b')
+b.parentElement.removeChild(b)
+
+または、
+
+const img = document.querySelector('img')
+img.remove()
