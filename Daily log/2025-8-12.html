@@ -1,0 +1,141 @@
+アロー関数って何？
+普通の関数を、短く書ける特別な書き方です。
+function を書かずに、矢印（=>） を使います。
+
+普通の関数
+javascript
+Copy
+Edit
+function sayHello(name) {
+return "こんにちは " + name + " さん！";
+}
+console.log(sayHello("太郎"));
+アロー関数（短くしただけ）
+javascript
+Copy
+Edit
+const sayHello = (name) => {
+return "こんにちは " + name + " さん！";
+};
+console.log(sayHello("太郎"));
+さらに短縮（1行・return省略）
+javascript
+Copy
+Edit
+const sayHello = name => "こんにちは " + name + " さん！";
+console.log(sayHello("太郎"));
+2. () の中身が変わるルール
+引数が1つだけ → () を省略できる
+
+javascript
+Copy
+Edit
+const double = x => x * 2;
+引数が0個または2個以上 → () が必要
+
+javascript
+Copy
+Edit
+const greet = () => "こんにちは！"; // 引数なし
+const add = (a, b) => a + b; // 引数2つ
+
+---------------------------------
+
+JavaScriptを書くときの基本構成（初心者〜中級向け）
+データの準備（定数・変数・配列・オブジェクトなど）
+
+要素の取得（document.querySelector / getElementById など）
+
+イベントの設定（クリックや送信など）
+
+処理を書く関数（表示・計算・API呼び出しなど）
+
+実行（初期表示や最初の関数呼び出し）
+
+例：カフェイン量検索ミニアプリの場合
+javascript
+Copy
+Edit
+// 1. データの準備
+const drinks = [
+{ name: "Coffee", caffeine: 95 },
+{ name: "Matcha", caffeine: 70 },
+{ name: "Cola", caffeine: 35 }
+];
+
+// 2. 要素の取得
+const form = document.querySelector("#searchForm");
+const resultArea = document.querySelector("#resultArea");
+
+// 3. イベントの設定
+form.addEventListener("submit", function (e) {
+e.preventDefault();
+const input = form.querySelector("input").value.trim();
+searchDrink(input);
+});
+
+// 4. 処理を書く関数
+function searchDrink(name) {
+const drink = drinks.find(d => d.name.toLowerCase() === name.toLowerCase());
+displayResult(drink);
+}
+
+function displayResult(drink) {
+resultArea.innerHTML = drink
+? `${drink.name} - ${drink.caffeine}mg`
+: "見つかりませんでした";
+}
+
+// 5. 実行（必要なら）
+displayResult(null);
+
+ポイント
+データは最初にまとめる
+→ 変数や配列、APIのURLなど、後から何度も使う情報は最初に書く
+
+要素取得はまとめる
+→ HTMLのどの部分を動かすのか、最初に全部取得しておくと後が楽
+
+イベント設定はシンプルに
+→ 「何が起きたら、何をするか」だけ書く
+
+処理は関数で分ける
+→ 検索する処理、表示する処理、計算する処理…を分けて書くと読みやすい
+
+最後に実行
+→ 初期状態の表示や、ページ読み込み時の処理を実行
+
+処理の具体例
+処理の名前（やること） 何をする？
+検索する処理 入力された飲み物の名前をもとに、データの中から一致する飲み物を探す
+結果を表示する処理 見つかった飲み物の名前・カフェイン量・原産国をHTMLに追加して画面に表示する
+エラー表示処理 入力が空だったり見つからなかったときに、警告やメッセージを出す
+データ取得処理 APIやJSONファイルから飲み物の情報を読み込む
+
+なぜ処理を関数で分けるの？
+読みやすくなる（1つの関数は1つの仕事だけ）
+
+再利用できる（同じ処理を別の場所でも使える）
+
+修正しやすい（どの部分を直せばいいかすぐわかる）
+
+分けた例
+javascript
+Copy
+Edit
+// 検索処理
+function searchDrink(name) {
+return drinks.find(d => d.name.toLowerCase() === name.toLowerCase());
+}
+
+// 表示処理
+function displayResult(drink) {
+resultArea.innerHTML = drink
+? `${drink.name} - ${drink.caffeine}mg`
+: "見つかりませんでした";
+}
+
+// 実行部分
+const drinkName = "Coffee";
+const result = searchDrink(drinkName);
+displayResult(result);
