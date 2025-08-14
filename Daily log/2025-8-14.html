@@ -1,0 +1,203 @@
+API（Application Programming Interface）
+何者？
+
+アプリやサービスの機能を**決まった手順（インターフェイス）**で呼び出せるようにしたもの。
+例：天気API、地図API、支払いAPI など。
+
+Web APIの基本要素
+
+エンドポイント：https://api.example.com/v1/users
+
+HTTPメソッド：GET（取得）、POST（作成）、PUT/PATCH（更新）、DELETE（削除）
+
+パラメータ
+
+パス：/users/123
+
+クエリ：?page=2&limit=20
+
+ボディ：主にPOST/PUT/PATCHでJSONなどを送る
+
+ヘッダー：Authorization, Content-Type, Accept など
+
+レスポンス：ボディ（よくJSON）、ステータスコード（200台=成功、400台=クライアントエラー、500台=サーバエラー）
+
+認証：APIキー、Bearerトークン、OAuth 2.0、Cookie/セッション など
+
+周辺仕様：レート制限、ページネーション、フィールド選択、並び替え、エラー形式など
+
+スタイルの種類（ざっくり）
+
+REST：リソース（/users）にHTTPメソッドで操作
+
+GraphQL：単一エンドポイントで必要なフィールドだけ取得
+
+RPC：関数呼び出し的に/doSomething
+
+WebSocket/SSE：リアルタイム配信
+
+JSON（JavaScript Object Notation）
+特徴
+
+軽量テキスト、言語非依存、読みやすい。
+値の型：object / array / string / number / boolean / null
+
+よく使う場面
+
+APIのリクエスト/レスポンスボディ
+
+設定ファイル、保存データ
+
+送受信の基本ヘッダー
+
+送るとき：Content-Type: application/json
+
+受けたいとき：Accept: application/json
+
+JSでの変換
+
+文字列 → オブジェクト：JSON.parse(text, reviver?)
+
+オブジェクト → 文字列：JSON.stringify(obj, replacer?, space?)
+
+つまずきポイント
+
+コメント不可、末尾カンマ不可
+
+Dateは日付型ではなく文字列としてやり取り（reviverで復元可能）
+
+BigInt/undefined/NaN/Infinity/関数/循環参照はそのままでは不可（必要なら前処理）
+
+数値は倍精度（桁落ちに注意）
+
+fetch（HTTPクライアント）
+何者？
+
+Promiseを返す標準API。ブラウザ/Node.js(18+)で利用可。
+戻り値：Responseオブジェクト（.ok, .status, .headers, .json(), .text() など）
+
+最小の例（GET）
+const res = await fetch('https://api.example.com/v1/users?page=1');
+if (!res.ok) throw new Error(`HTTP ${res.status}`);
+const data = await res.json(); // ← JSONとして読む
+console.log(data);
+
+JSONを送る（POST）
+const body = { name: 'Taro', email: 'taro@example.com' };
+
+const res = await fetch('https://api.example.com/v1/users', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json', // 送信形式を明示
+'Accept': 'application/json', // 受信形式の希望
+'Authorization': 'Bearer YOUR_TOKEN' // 認証が必要なら
+},
+body: JSON.stringify(body) // ← 必ず文字列化
+});
+
+if (!res.ok) throw new Error(`HTTP ${res.status}`);
+const created = await res.json();
+
+エラー処理のコツ
+
+ネットワーク失敗以外はfetchはrejectしない（404でもresolve）。必ずres.okで判定。
+
+サーバがJSON以外を返すことも。.json()の前にres.headers.get('content-type')を確認しておくと安全。
+
+サーバ由来のエラー詳細(JSON)を拾う例：
+
+const res = await fetch(url, opts);
+let payload = null;
+const isJson = res.headers.get('content-type')?.includes('application/json');
+if (isJson) {
+try { payload = await res.json(); } catch {}
+} else {
+payload = await res.text().catch(() => null);
+}
+if (!res.ok) {
+throw new Error(payload?.message || `HTTP ${res.status}`);
+}
+
+タイムアウト/キャンセル（AbortController）
+const ac = new AbortController();
+const t = setTimeout(() => ac.abort(), 8000); // 8秒で中断
+
+try {
+const res = await fetch(url, { signal: ac.signal });
+// …
+} finally {
+clearTimeout(t);
+}
+
+CORSの基本
+
+ブラウザから別オリジンへアクセスするときはサーバ側が
+Access-Control-Allow-Origin などのCORSヘッダーを返す必要。
+
+fetch側でsame-origin/cors/no-corsを設定できるが、根本対応はサーバ。
+
+Cookieを跨いで送る場合はcredentials: 'include'と、サーバ側Access-Control-Allow-Credentials: trueが必要。
+
+認証ヘッダー例
+headers: {
+'Authorization': `Bearer ${token}`,
+'Content-Type': 'application/json'
+}
+
+ファイルアップロード（FormData）
+const fd = new FormData();
+fd.append('avatar', fileInput.files[0]); // <input type="file">
+fd.append('name', 'Taro');
+
+const res = await fetch('/upload', { method: 'POST', body: fd });
+// Content-Typeは自動でmultipart/form-dataになるので自分で設定しない
+
+受け取りの形式いろいろ
+await res.json(); // JSON
+await res.text(); // テキスト/HTML
+await res.blob(); // 画像/バイナリ（ブラウザ）
+await res.arrayBuffer(); // バイナリ
+await res.formData(); // multipartのレスポンス
+
+レスポンスの再読み（clone()）
+
+ボディは一度読むと消費される。複数回使いたい場合はres.clone()を使う。
+
+リトライの素振り（指数バックオフ）
+async function fetchWithRetry(url, opts={}, tries=3, pause=300) {
+let e;
+for (let i=0; i<tries; i++) { try { const res=await fetch(url, opts); if (!res.ok) throw new Error(`HTTP
+    ${res.status}`); return res; } catch (err) { e=err; await new Promise(r=> setTimeout(r, pause * (2 ** i)));
+    }
+    }
+    throw e;
+    }
+
+    3つの「役割の違い」を一言で
+
+    API：呼び出す相手/契約（何をどう呼べば何が返るかのルール）。
+
+    JSON：その契約でやり取りするデータの形式。
+
+    fetch：契約に従ってHTTPで実際に呼ぶためのツール。
+
+    実務でのチェックリスト
+
+    ドキュメント：エンドポイント/メソッド/認証/レート制限/エラー形式/例を熟読
+
+    リクエスト：method・headers（特にContent-Type/Authorization）・bodyの整合性
+
+    レスポンス：status確認 → 期待形式（JSON?）を検査してからパース
+
+    例外処理：res.okチェック、パース失敗分岐、タイムアウト、リトライ
+
+    CORS/認可：ブラウザならサーバ側CORS設定の有無、Cookie送信要件
+
+    データ型：日付/大きな整数/小数精度/undefined/循環参照に注意
+
+    おまけ：fetchと他ライブラリの違い
+
+    fetch：標準・依存なし・ストリーム対応・低レベル寄り（インターセプタ等は自作）
+
+    Axios等：古い環境対応・インターセプタ・自動JSON化・タイムアウト内蔵など“電池入り”
+    → まずはfetchで十分。要件が増えたら導入を検討。
