@@ -1,0 +1,88 @@
+map（配列を変換する道具）
+
+イメージ：
+工場のベルトコンベアを想像してください。
+
+入ってきた部品（配列の要素）を1つずつ加工して、新しい部品の配列を作る。
+
+元の配列は壊さず、新しい配列を返す。
+
+書き方
+
+const 新しい配列 = 元の配列.map((要素, インデックス, 配列全体) => {
+return 加工後の値;
+});
+
+
+例：全員の名前を大文字に変換
+
+const names = ['taro', 'hanako', 'jiro'];
+const upperNames = names.map(name => name.toUpperCase());
+
+console.log(upperNames); // ["TARO", "HANAKO", "JIRO"]
+console.log(names); // ["taro", "hanako", "jiro"] 元はそのまま
+
+
+ルール/特徴
+
+必ず新しい配列を返す（元配列は変わらない）。
+
+forEachとの違い → mapは返り値があり、forEachは返り値なし。
+
+要素数は変わらない（1つの要素 → 1つの結果）。
+
+2. setTimeout（一度だけ、あとで実行）
+
+イメージ：
+「5秒後にアラームが鳴る」タイマーのようなもの。
+
+書き方
+
+setTimeout(実行する関数, 待ち時間ミリ秒);
+
+
+例：3秒後に表示
+
+setTimeout(() => {
+console.log("3秒経ちました！");
+}, 3000); // 3000ミリ秒 = 3秒
+
+
+ルール/特徴
+
+待ち時間はミリ秒で指定（1000ms = 1秒）。
+
+指定時間後に1回だけ実行。
+
+実行前にキャンセルする場合はclearTimeout(id)を使う。
+
+const id = setTimeout(() => console.log("これは実行されない"), 5000);
+clearTimeout(id); // 実行前にキャンセル
+
+3. setInterval（繰り返し実行）
+
+イメージ：
+「1秒ごとに鳴るアラーム」のようなもの。
+
+書き方
+
+setInterval(実行する関数, 間隔ミリ秒);
+
+
+例：2秒ごとに表示
+
+const timerId = setInterval(() => {
+console.log("2秒経ったよ！");
+}, 2000);
+
+
+ルール/特徴
+
+指定した間隔で何度も実行する。
+
+止めるときはclearInterval(id)を使う。
+
+setTimeout(() => {
+clearInterval(timerId);
+console.log("ストップしました");
+}, 7000); // 7秒後に停止
