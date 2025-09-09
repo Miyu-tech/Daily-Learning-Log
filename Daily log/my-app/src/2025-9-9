@@ -1,0 +1,31 @@
+今日学んだこと
+
+ESLint のルール設定
+
+'no-undef': 'error' は ESLint の設定で、場所によって書き方が違う（.eslintrc.js と .eslintrc.json）。
+
+React の useState の使い方
+
+useState を使うときは import React, { useState } from 'react'; と書く必要がある。
+
+インポートし忘れるとエラーになって画面に表示されない。
+
+props の分割代入
+
+const { type } = props; は props から「type だけ取り出す」魔法。
+
+props.type を毎回書かなくていい。
+
+関数の引数でも書ける：function Button({ type }) { ... }。
+
+スペルミスに注意
+
+faulse ❌ → false ✅
+
+JavaScript では true と false は小文字で書く。
+
+Button コンポーネントの基本
+
+children を使うと <Button>中身</Button> の中身をそのまま表示できる。
+
+disabled や type を props 経由で渡して使える。
