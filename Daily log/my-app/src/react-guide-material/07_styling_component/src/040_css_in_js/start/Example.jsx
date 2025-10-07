@@ -12,6 +12,19 @@ const StyledButton = styled.button`
     font-weight: bold;
     cursor: pointer;
     backgroung: ${({isSelected}) => isSelected ? 'pink' : ''};
+
+    @media (max-width: 600px) {
+      border-radius: 0;
+    }
+    `;
+
+    const OrangeButton = styled(StyledButton)`
+    background-color: orange;
+
+    :hover, :active {
+      color: red;
+      opacity: 0.7;
+    }
     `;
 
 const Example = () => {
@@ -22,6 +35,8 @@ const Example = () => {
   return (
     <>
     <StyledButton isSelected={isSelected} onClick={clickHandler}>Button</StyledButton>
+    <OrangeButton isSelected={isSelected} onClick={clickHandler}>Button</OrangeButton>
+
       <button
         className={`btn ${isSelected ? "selected" : ""}`}
         onClick={clickHandler}
