@@ -1,3 +1,4 @@
+
 const tweetForm = document.querySelector('#tweetForm');
 const tweetsContainer = document.querySelector('#tweet');
 tweetForm.addEventListener('submit', function (e) {
@@ -28,36 +29,3 @@ const addTweet = (username, tweet) => {
 
 
 
-const form = document.querySelector('form');
-const list = document.querySelector('#list');
-
-form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const productInput = form.elements.product;
-    const qtyInput = form.elements.qty;
-
-    const newItem = document.createElement('li');
-    newItem.textContent = `${productInput.value} ${qtyInput.value}`;
-    list.appendChild(newItem);
-
-    productInput.value = '';
-    qtyInput.value = '';
-});
-
-const form = document.querySelector('form');
-const list = document.querySelector('#list');
-
-form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const productInput = form.elements.qty;
-    const qtyInput = form.elements.qty;
-
-    const newItem = this.ownerDocument.createElement('li');
-    newItem.textContent = `${qtyInput.value} ${productInput.value}`;
-    list.appendChild(newItem);
-
-    productInput.value = '';
-    qtyInput.value = '';
-});

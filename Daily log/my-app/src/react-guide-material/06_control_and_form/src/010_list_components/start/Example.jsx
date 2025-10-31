@@ -8,7 +8,7 @@ for (const animal of animals) {
 }
 
 const helloAnimals animals.map((animal) => 
-<li>Hello, {animall}</li> );
+<li key={animal}>Hello, {animall}</li> );
 return (
     <>
       <h3>配列の操作</h3>
@@ -26,3 +26,5 @@ export default Example;
 
 
 // map is frequetly use in React more than for()
+
+

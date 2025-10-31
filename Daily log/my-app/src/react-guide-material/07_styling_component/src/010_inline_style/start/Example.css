@@ -1,0 +1,13 @@
+.btn {
+        width:120px;
+        height: 60px;
+        display: block;
+        font-weight: bold;
+        border-radius: 9999;
+        cursor: pointer;
+        border: none;
+        margin: auto;
+}
+.selected { 
+        background-color: pink;
+    }

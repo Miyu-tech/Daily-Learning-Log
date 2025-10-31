@@ -3,7 +3,7 @@ const resultArea = document.querySelector('#resultArea');
 
 form.addEventListener('submit', async function (e) {
     e.preventDefault();
-    const drinkInput = form.element.query;
+    const drinkInput = form.elements.query;
     const drinkName = drinkInput.value.trim();
 
     if (!drinkName) return alert('飲み物の名前を入力してください');
@@ -11,7 +11,7 @@ form.addEventListener('submit', async function (e) {
     const caffeineData = await fetchDrinkInfo(drinkName);
 
     displayResults(caffeineData);
-    drinkInput = '';
+    drinkInput.value = '';
 });
 
 class Drink {
@@ -24,13 +24,13 @@ class Drink {
 
 async function fetchDrinkInfo(drinkName) {
 
-    const dummy {
-        "coffee": new Drink("Coffee", 95, "Ethiopis"),
-            "matcha": new Drink("Match", 70, "Japan"),
-                "cola": new Drink("Cola", 35, "United States");
-    "blacktea": new Drink("Black tea", 50, "India");
-};
-return dummy[drinkName.toLowerCase()];
+    const dummy = {
+        "coffee": new Drink("Coffee", 95, "Ethiopia"),
+        "matcha": new Drink("Match", 70, "Japan"),
+        "cola": new Drink("Cola", 35, "United States"),
+        "blacktea": new Drink("Black tea", 50, "India"),
+    };
+    return dummy[drinkName.toLowerCase()];
 }
 
 function displayResults(drink) {

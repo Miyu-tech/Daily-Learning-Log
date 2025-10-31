@@ -4,15 +4,21 @@
 
 import "./Child.css";
 import { List } from "./List";
+import React from 'react';
 
 const Example = () => {
   return (
-    <div className="component">
+    <React.Fragment>
+ <div>
+     <div className="component">
       <h3>Hello Component</h3>
-      </div>
-
+      <h3>Hello Fragument</h3>
+    </div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus architecto blanditiis magni impedit ex rerum aperiam temporibus minima. Totam facere inventore similique rerum harum incidunt adipisci? Doloremque at reprehenderit sunt.</p>
       </ul>
     </div>
+    </React.Fragment>
+   
   );
 };
 

@@ -3,23 +3,31 @@ body {
     max-width: 700;
     margin: 40px auto;
     padding: 0 20px;
+    background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80')
 }
 
 h1 {
     text-align: center;
     margin-bottom: 30px;
+    color: white;
+    text-shadow: 2px 2px 4px black;
 }
 
 form {
     display: flex;
     gap: 8px;
     margin-bottom: 25px;
+    justify-content: center;
+
 }
 
 input {
-    flex: 1;
+    flex: 0.5;
     padding: 8px;
     font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 button {
@@ -28,8 +36,13 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    background-color: antiquewhite;
+}
+
 #resultArea {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    color: white;
 }
