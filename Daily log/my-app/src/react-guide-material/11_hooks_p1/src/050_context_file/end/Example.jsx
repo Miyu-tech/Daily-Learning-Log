@@ -1,4 +1,3 @@
-// POINT Contextコードの整理方法
 
 import "./Example.css";
 import Main from "./components/Main";
@@ -15,3 +14,4 @@ const Example = () => {
 };
 
 export default Example;
+
